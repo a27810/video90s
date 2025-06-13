@@ -1,0 +1,6 @@
+@Video90s.API_HostAddress = http://localhost:5209
+
+GET {{Video90s.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,38 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: video90s-db
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "YourStrong!Passw0rd"
+    ports:
+      - "2781:1433"
+    volumes:
+      - dbdata:/var/opt/mssql
+
+  api:
+    build:
+      context: ./Video90s.API
+      dockerfile: Dockerfile
+    container_name: video90s-api
+    depends_on:
+      - db
+    environment:
+      # Para que Kestrel escuche en el puerto 80 interno
+      ASPNETCORE_URLS: "http://+:80"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      # Cadena de conexión con TrustServerCertificate=True
+      ConnectionStrings__DefaultConnection: >-
+        Server=db,1433;
+        Database=Video90s;
+        User Id=sa;
+        Password=YourStrong!Passw0rd;
+        TrustServerCertificate=True
+      Jwt__Key:      "este-es-un-secreto-muy-largo-para-jwt"
+      Jwt__Issuer:   "video90s"
+      Jwt__Audience: "video90s"
+    ports:
+      - "7810:80"
+
+volumes:
+  dbdata:

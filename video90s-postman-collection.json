@@ -1,0 +1,194 @@
+{
+  "info": {
+    "name": "Video90s API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userName\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"password\": \"P@ssw0rd!\",\n  \"role\": \"User\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:7810/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7810",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userName\": \"testuser\",\n  \"password\": \"P@ssw0rd!\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:7810/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7810",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Movies (public)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:7810/api/movies",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7810",
+          "path": [
+            "api",
+            "movies"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Movie (admin)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"New Film\",\n  \"genre\": \"Action\",\n  \"releaseDate\": \"2025-06-01T00:00:00\",\n  \"price\": 9.99,\n  \"isAvailable\": true,\n  \"format\": \"DVD\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:7810/api/movies",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7810",
+          "path": [
+            "api",
+            "movies"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Rentals (user)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:7810/api/rentals",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7810",
+          "path": [
+            "api",
+            "rentals"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Rental (user)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"movieId\": 1,\n  \"isReserved\": false\n}"
+        },
+        "url": {
+          "raw": "http://localhost:7810/api/rentals",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7810",
+          "path": [
+            "api",
+            "rentals"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
