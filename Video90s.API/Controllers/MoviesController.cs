@@ -58,7 +58,7 @@ namespace Video90s.API.Controllers
                 }
             }
 
-            // 4) Ejecutar y devolver
+            //  Ejecutar y devolver
             var list = await q.ToListAsync();
             return Ok(list);
         }

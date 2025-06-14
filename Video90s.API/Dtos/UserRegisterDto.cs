@@ -5,6 +5,6 @@ namespace Video90s.API.Dtos
         public string UserName   { get; set; }
         public string Email      { get; set; }
         public string Password   { get; set; }
-        public string Role       { get; set; } // "User" por defecto, o "Admin"
+        public string Role       { get; set; } // ACUÉRDATE DE ESTO "User" por defecto, o "Admin"
     }
 }

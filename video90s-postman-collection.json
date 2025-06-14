@@ -21,15 +21,9 @@
         "url": {
           "raw": "http://localhost:7810/api/auth/register",
           "protocol": "http",
-          "host": [
-            "localhost"
-          ],
+          "host": ["localhost"],
           "port": "7810",
-          "path": [
-            "api",
-            "auth",
-            "register"
-          ]
+          "path": ["api", "auth", "register"]
         }
       },
       "response": []
@@ -51,15 +45,9 @@
         "url": {
           "raw": "http://localhost:7810/api/auth/login",
           "protocol": "http",
-          "host": [
-            "localhost"
-          ],
+          "host": ["localhost"],
           "port": "7810",
-          "path": [
-            "api",
-            "auth",
-            "login"
-          ]
+          "path": ["api", "auth", "login"]
         }
       },
       "response": []
@@ -71,14 +59,9 @@
         "url": {
           "raw": "http://localhost:7810/api/movies",
           "protocol": "http",
-          "host": [
-            "localhost"
-          ],
+          "host": ["localhost"],
           "port": "7810",
-          "path": [
-            "api",
-            "movies"
-          ]
+          "path": ["api", "movies"]
         }
       },
       "response": []
@@ -110,14 +93,33 @@
         "url": {
           "raw": "http://localhost:7810/api/movies",
           "protocol": "http",
-          "host": [
-            "localhost"
-          ],
+          "host": ["localhost"],
           "port": "7810",
-          "path": [
-            "api",
-            "movies"
+          "path": ["api", "movies"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Users (admin)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
           ]
+        },
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:7810/api/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "7810",
+          "path": ["api", "users"]
         }
       },
       "response": []
@@ -139,14 +141,9 @@
         "url": {
           "raw": "http://localhost:7810/api/rentals",
           "protocol": "http",
-          "host": [
-            "localhost"
-          ],
+          "host": ["localhost"],
           "port": "7810",
-          "path": [
-            "api",
-            "rentals"
-          ]
+          "path": ["api", "rentals"]
         }
       },
       "response": []
@@ -178,13 +175,76 @@
         "url": {
           "raw": "http://localhost:7810/api/rentals",
           "protocol": "http",
-          "host": [
-            "localhost"
-          ],
+          "host": ["localhost"],
           "port": "7810",
-          "path": [
-            "api",
-            "rentals"
+          "path": ["api", "rentals"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Rentals (admin)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:7810/api/rentals",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "7810",
+          "path": ["api", "rentals"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Rental (admin)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:7810/api/rentals/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "7810",
+          "path": ["api", "rentals", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Movies (public)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:7810/api/movies?genre=Comedy&available=true&sortBy=releaseDate&sortDir=desc",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "7810",
+          "path": ["api", "movies"],
+          "query": [
+            { "key": "genre", "value": "Comedy" },
+            { "key": "available", "value": "true" },
+            { "key": "sortBy", "value": "releaseDate" },
+            { "key": "sortDir", "value": "desc" }
           ]
         }
       },
