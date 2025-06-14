@@ -8,6 +8,6 @@ namespace Video90s.API.Models
         public DateTime ReleaseDate { get; set; }
         public decimal Price { get; set; }
         public bool IsAvailable { get; set; }
-        public string Format { get; set; }             // VHS, DVD, BluRay
+        public string Format { get; set; }             // Videojuego, DVD, BluRay
     }
 }

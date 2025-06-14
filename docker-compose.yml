@@ -6,7 +6,7 @@ services:
     container_name: video90s-db
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "YourStrong!Passw0rd"
+      SA_PASSWORD: "S@nValero2025"
     ports:
       - "2781:1433"
     volumes:
@@ -20,15 +20,15 @@ services:
     depends_on:
       - db
     environment:
-      # Para que Kestrel escuche en el puerto 80 interno
+
       ASPNETCORE_URLS: "http://+:80"
       ASPNETCORE_ENVIRONMENT: "Development"
-      # Cadena de conexión con TrustServerCertificate=True
+
       ConnectionStrings__DefaultConnection: >-
         Server=db,1433;
         Database=Video90s;
         User Id=sa;
-        Password=YourStrong!Passw0rd;
+        Password=S@nValero2025;
         TrustServerCertificate=True
       Jwt__Key:      "este-es-un-secreto-muy-largo-para-jwt"
       Jwt__Issuer:   "video90s"
