@@ -18,5 +18,5 @@ COPY --from=build /app/publish .
 # Expondremos el puerto 80 dentro del contenedor
 EXPOSE 80
 
-# Entry point
+# Enty point
 ENTRYPOINT ["dotnet", "Video90s.API.dll"]
